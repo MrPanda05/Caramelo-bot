@@ -4,13 +4,20 @@ module.exports = {
 	aliases: ['icon', 'pfp'],
 	execute(message) {
 		if (!message.mentions.users.size) {
-			return message.channel.send(`Seu avatar: <${message.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
+			return message.channel.send({embed : {
+				color:('#583ff4'),
+				author: {
+					name: message.author.username,
+				},
+				image:{
+					url: `${message.author.displayAvatarURL({ format: "png", dynamic: true })}`
+				}
+			}});
 		}
-
+		/* Reprograma  essa porra
 		const avatarList = message.mentions.users.map(user => {
-			return `${user.username}'s avatar: <${user.displayAvatarURL({ format: "png", dynamic: true })}>`;
-		});
-
-		message.channel.send(avatarList);
+			`${user.username}'s avatar: <${user.displayAvatarURL({ format: "png", dynamic: true })}>`;
+		});*/
+		const user = getUserFromMention(args[0]);
 	},
 };
