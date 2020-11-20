@@ -14,10 +14,20 @@ module.exports = {
 				}
 			}});
 		}
-		/* Reprograma  essa porra
+		
 		const avatarList = message.mentions.users.map(user => {
-			`${user.username}'s avatar: <${user.displayAvatarURL({ format: "png", dynamic: true })}>`;
-		});*/
-		const user = getUserFromMention(args[0]);
+			return `${user.username}'s avatar: ${user.displayAvatarURL({format: "png", dynamic: true })}`;
+		});
+
+		message.channel.send({embed : {
+			color:('#583ff4'),
+			author:{
+				name: message.mentions.users.username,
+			},
+			image:{
+				url: displayAvatarURL, //sa porra nao funfa
+				//Tenho que ve os codigo dos outro nego 
+			}
+		}});
 	},
 };
