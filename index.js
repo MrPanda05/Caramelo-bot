@@ -14,6 +14,37 @@ for (const file of commandFiles) {
 
 const cooldowns = new Discord.Collection();
 
+/*const dispatcher = connection.play('audio.mp3');
+connection.play('https://www.youtube.com/');
+connection.play('audio.mp3');
+
+dispatcher.on('start', () => {
+	console.log('audio.mp3 is now playing!');
+});
+
+dispatcher.on('finish', () => {
+	console.log('audio.mp3 has finished playing!');
+});
+
+dispatcher.on('error', console.error);
+
+const broadcastDispatcher = broadcast.play('music.mp3');
+
+
+const broadcast = client.voice.createBroadcast();
+// Play audio on the broadcast
+const dispatcher = broadcast.play('audio.mp3');
+broadcast.play('https://www.youtube.com/');
+
+broadcast.on('subscribe', dispatcher => {
+	console.log(`Broadcast playing in ${dispatcher.player.voiceConnection.channel.name}`);
+});
+
+// Emits the subscribe event on the broadcast
+connection.play(broadcast);
+Não sei mexer com essa porra ainda
+*/
+//Ve se o bot ta funfando
 client.once('ready', () => {
 	console.log('I\'m ready!');
 });
