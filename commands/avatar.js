@@ -1,33 +1,26 @@
+const Discord = require('discord.js');
 module.exports = {
 	name: 'avatar',
 	description: 'Mosta o avatar dos meliantes.',
 	aliases: ['icon', 'pfp'],
 	execute(message) {
-		if (!message.mentions.users.size) {
-			return message.channel.send({embed : {
-				color:('#583ff4'),
-				author: {
-					name: message.author.username,
-				},
-				image:{
-					url: `${message.author.displayAvatarURL({ format: "png", dynamic: true })}`
-				}
-			}});
-		}
+		const avatarSolo = new Discord.MessageEmbed()
+			.setImage(`${message.author.displayAvatarURL({ format: "png", dynamic: true })}`)
+			.setColor('RANDOM');
 		
+		if (!message.mentions.users.size) {
+			return message.channel.send(avatarSolo);
+		}
+
 		const avatarList = message.mentions.users.map(user => {
-			return `${user.username}'s avatar: ${user.displayAvatarURL({format: "png", dynamic: true })}`;
+			return `${user.displayAvatarURL({format: "png", dynamic: true })}`;
 		});
 
-		message.channel.send({embed : {
-			color:('#583ff4'),
-			author:{
-				name: message.mentions.users.username,
-			},
-			image:{
-				url: displayAvatarURL, //sa porra nao funfa
-				//Tenho que ve os codigo dos outro nego 
-			}
-		}});
-	},
-};
+		const avatarTag = new Discord.MessageEmbed()
+			.setImage(`${avatarList}`)
+			.setColor('RAMDOM');
+		message.channel.send(avatarTag);
+	}
+}
+
+//Só nao funciona se mandar duas tag, mas eu resolvo isso dps
