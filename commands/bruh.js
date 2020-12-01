@@ -13,6 +13,7 @@ module.exports = {
             .setDescription('bruh momento detected')
             .setImage('https://i.imgur.com/HjFZfJp.png')
         message.channel.send(bruhEmbed);
+
     }
 }
 

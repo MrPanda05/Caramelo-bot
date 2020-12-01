@@ -44,24 +44,13 @@ broadcast.on('subscribe', dispatcher => {
 connection.play(broadcast);
 Não sei mexer com essa porra ainda
 */
-//Ve se o bot ta funfando
+
+
+//ve se o bot ta on!
+
 client.once('ready', () => {
 	console.log('I\'m ready!');
 });
-
-function getUserFromMention(mention) {
-	if (!mention) return;
-
-	if (mention.startsWith('<@') && mention.endsWith('>')) {
-		mention = mention.slice(2, -1);
-
-		if (mention.startsWith('!')) {
-			mention = mention.slice(1);
-		}
-
-		return client.users.cache.get(mention);
-	}
-}
 
 client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -71,7 +60,7 @@ client.on('message', message => {
 
 	const command = client.commands.get(commandName)
 		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
-
+		
 	if (!command) return;
 
 	if (command.guildOnly && message.channel.type === 'dm') {
@@ -114,6 +103,11 @@ client.on('message', message => {
 		console.error(error);
 		message.reply('Pera, deu erro aki!');
 	}
+
+	process.on('unhandledRejection', error => {
+	console.error('Unhandled promise rejection:', error);
+});
+
 });
 
 client.login(token);
