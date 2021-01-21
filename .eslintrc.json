@@ -1,0 +1,16 @@
+{
+	"extends": ["eslint:recommended", "smart-tabs"],
+	"env": {
+		"node": true,
+		"es6": true
+	},
+	"parserOptions": {
+		"ecmaVersion": 2019
+	},
+	"rules": {
+        "semi": ["error", "always"],
+        "no-console": "off",
+        "brace-style": ["warn", "stroustrup", { "allowSingleLine": true }],
+        "no-var": "warn"
+	}
+}

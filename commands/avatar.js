@@ -3,6 +3,7 @@ module.exports = {
 	name: 'avatar',
 	description: 'Mosta o avatar dos meliantes.',
 	aliases: ['icon', 'pfp'],
+	dev: true,
 	execute(message) {
 		const avatarSolo = new Discord.MessageEmbed()
 			.setImage(`${message.author.displayAvatarURL({ format: "png", dynamic: true })}`)
@@ -21,6 +22,6 @@ module.exports = {
 			.setColor('RAMDOM');
 		message.channel.send(avatarTag);
 	}
-}
+};
 
 //Só nao funciona se mandar duas tag, mas eu resolvo isso dps

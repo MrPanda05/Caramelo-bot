@@ -1,11 +1,10 @@
 const Discord = require('discord.js');
 
 module.exports = {
-	name: 'ban',
-	description: 'bane vagabundo kkkk',
-     aliases: ['b'],
+	name: 'desban',
+	description: 'desbane ',
+     aliases: ['desbanido', 'unban'],
      guildOnly: true,
-     syntax: 'ban tag de alguem',
      //Comando pra banir vagabundo
      /*
      1-Comando de banir
@@ -16,10 +15,6 @@ module.exports = {
      -Enviar menssagem falando que não tem permissão
      3-Fazer uma versão de unban
      4-Muda tudo pra uma versão de kick
-     BUGS:
-     1-Quando bani alguem que não ta no servidor
-     2-quando desbane alguem que já esta desbanido
-     3-quando bane alguem de cargo maior ou igual
      */
 	execute(message, args){
          // const client = new Discord.Client();
@@ -38,7 +33,7 @@ module.exports = {
                }
           }
           const user = getUserFromMention(args[0]);
-          //const id = args[0];
+   
           //Caso o cara não tem permissão
           if (!message.member.hasPermission('ADMINISTRATOR')) {
               return message.reply ('Você não tem permissão!');
@@ -49,12 +44,17 @@ module.exports = {
           }
           const reason = args.slice(1).join(' ');
 	    try {
-		     message.guild.members.ban(user, { reason });
+		     message.guild.members.unban(user);
 	        } catch (error) {
-		    return message.channel.send(`Não foi possível banir está pessoa com o id: **${user}**\nErro: ${error}`);
-	        }
+		    return message.channel.send(`Não foi possivel desbanir**${user}**\n : ${error}`);
+            }
+            if (message.delete().catch(error => {
+                if (error.code !== Discord.Constants.APIErrors.UNKNOWN_BAN) {
+                    console.error('Failed to delete the message:', error);
+                }
+            }));
 
-	        return message.channel.send(`O usuário de id: **${user}** foi banido`);
+	        return message.channel.send(`**${user}** desbanido`);
     }     
      
 }

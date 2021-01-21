@@ -1,10 +1,13 @@
+const Discord = require('discord.js');
+
 module.exports = {
 	name: 'teste',
 	description: 'testa as coisa',
      aliases: ['testão', 't'],
      //arquivo pra testa comando, sem limite
 	execute(message, args){
-          function getUserFromMention(mention) {
+
+          const getUserFromMention= function(mention) {
                if (!mention) return;
           
                if (mention.startsWith('<@') && mention.endsWith('>')) {
@@ -14,12 +17,17 @@ module.exports = {
                          mention = mention.slice(1);
                     }
           
-                    return client.users.cache.get(mention);
+                    return (mention);
                }
           }
-          
+
+          const user = getUserFromMention(args[0]);
+
+          if(!user) {
+               return message.reply('marque alguem!');
+          }
+          return message.channel.send(user.tag);
+
      }
+     
 }
-          
-              
-          

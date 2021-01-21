@@ -1,7 +1,12 @@
+//Node.js 
 const fs = require('fs');
-const Discord = require('discord.js');
-const { prefix, token } = require('./config.json');
 
+// require the discord.js module
+const Discord = require('discord.js');
+//const variable object that needs the config.json file.
+const { prefix, token, dev } = require('./config.json');
+
+// create a new Discord client
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
@@ -52,9 +57,14 @@ client.once('ready', () => {
 	console.log('I\'m ready!');
 });
 
+
+
+
+ 
 client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
+	
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();
 
@@ -62,6 +72,7 @@ client.on('message', message => {
 		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 		
 	if (!command) return;
+
 
 	if (command.guildOnly && message.channel.type === 'dm') {
 		return message.reply('Eu não uso esse comando em DM! bobão');

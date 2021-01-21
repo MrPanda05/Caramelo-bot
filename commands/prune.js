@@ -4,7 +4,7 @@ module.exports = {
 	guildOnly: true,
 	execute(message, args) {
 		const amount = parseInt(args[0]) + 1;
-		if(!message.member.roles.cache.has('782806503719043132'))
+		if(!message.member.hasPermission('ADMINISTRATOR'))
 			return message.reply('você não tem cargo para executar essa comando!');
 
 		if (isNaN(amount)) {

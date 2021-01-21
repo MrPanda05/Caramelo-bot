@@ -1,15 +1,15 @@
 const Discord = require('discord.js');
 module.exports = {
 	name: 'twitch',
-	aliases: ['on', 'live'],
+	aliases: ['on', 'live', 'Pai ta on', 'pai ta on'],
 	description: 'To on seu lixo',
     //cooldown: 5,
-    execute(message) {
+    execute(message, args) {
         //quando eu estiver live na twitch
         const liveOn = new Discord.MessageEmbed()
-        .setTitle('Entra na Live, ou não!')
+        .setTitle('To on!!')
         .setURL('https://www.twitch.tv/neekobh')
-        .setDescription('@everyone, live da motocicleta')
+        .setDescription('live da motocicleta')
         .setColor('RAMDOM')
         //\u200b adiciona um negocio vazio
         .addField('https://www.twitch.tv/neekobh', '\u200b')
@@ -24,8 +24,8 @@ module.exports = {
         .setDescription('Live do Neeko')
 
 
-        if (message.member.hasPermission('KICK_MEMBERS')) {
-            message.channel.send(liveOn);
+        if (message.member.hasPermission('ADMINISTRATOR')) {
+            message.channel.send('Eae @everyone kkkk' ,liveOn);
         } else {
             message.channel.send(linkTwitch);
         }

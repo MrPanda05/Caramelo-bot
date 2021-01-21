@@ -1,16 +1,41 @@
+const Discord = require('discord.js');
 module.exports = {
 	name: 'user-info',
-	aliases: ['info'],
+	aliases: ['info', 'eu'],//por uma parte onde se ele por eu não pode marcar ninguem
 	cooldown: 5,
-	description: 'Informações sobre você ou qualquer puta',
+	description: 'Informações sobre você ou alguem!',
 	execute(message, args) {
-		if (!message.mentions.users.size) {
-			return message.reply(`Nome de puta: ${message.author.username}\nCusto da puta em reais: ${message.author.id}
-Tempo de experiencia: ${message.author.createdTimestamp}`);
-		}
-		const infoUser = message.mentions.users.first();
-		
-		message.channel.send(`${message.author} quer comprar ${infoUser.username} para ser sua puta :smiling_imp:\nCusto da puta em reais: ${infoUser.id}
-Tempo de experiencia: ${infoUser.createdTimestamp}`);
+		function getUserFromMention(mention) {
+			if (!mention) return;
+	   
+			if (mention.startsWith('<@') && mention.endsWith('>')) {
+				 mention = mention.slice(2, -1);
+	   
+				 if (mention.startsWith('!')) {
+					  mention = mention.slice(1);
+				 }
+	   
+				 return (mention);
+			}
+	   }
+	  const user = getUserFromMention(args[0]);
+	   //const id = args[0];
+	   const infoSolo = new Discord.MessageEmbed()
+			.setImage(`${message.author.displayAvatarURL({ format: "png", dynamic: true })}`)
+			.setColor('RANDOM')
+			.setTitle(`Informações de ${message.author.username}`)
+			.addField(
+				{ name: 'id', value: `${message.author.id}`, inline: true},
+			);
+
+
+
+
+	   if (!message.mentions.users.size) {
+		   return message.channel.send (infoSolo);
+	   }
+
+
+
 	},
 };	
