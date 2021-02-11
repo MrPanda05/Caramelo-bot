@@ -1,7 +1,7 @@
 module.exports = {
-	name: 'Playza',
+	name: 'Play',
 	description: 'Play music',
-	execute(message) {
-		message.channel.send('Não funfa kkk');
-	},
+	execute(message, args){
+		message.channel.send('Ainda não sei mexerkkkkkkkkkkkkkkkkbruh')
+},
 };

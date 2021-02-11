@@ -16,7 +16,7 @@ module.exports = {
      3-Fazer uma versão de unban
      4-Muda tudo pra uma versão de kick
      */
-	eexecute(message, args){
+	execute(message, args){
         message.channel.send('oi...');
   },
 };

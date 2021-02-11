@@ -79,10 +79,10 @@ client.on('message', message => {
 	}
 
 	if (command.args && !args.length) {
-		let reply = `Fala direito, ${message.author}!`;
+		let reply = `Fala direito, ${message.author}!kkkkkkkk`;
 
 		if (command.usage) {
-			reply += `\nO anta, o correto é: \`${prefix}${command.name} ${command.usage}\``;
+			reply += `\nO anta, o correto é: \`${prefix}${command.name} ${command.usage}\`, burrão kkkkkk`;
 		}
 
 		return message.channel.send(reply);
