@@ -40,15 +40,15 @@ module.exports = {
           const member = getUserFromMention(args[0]);
           //const id = args[0];
           //Caso o cara não tem permissão
-          if (!message.member.hasPermission('ADMINISTRATOR')) {
-              return message.reply ('Você não tem permissão!');
-          }
+          if (!message.member.has(message.guild.ownerID)) {
+               return message.reply ('Você não é neeko');
+           }
           //Casso cara tenha permissão, mas não tenha marcado alguem!
-          if (message.member.hasPermission('ADMINISTRATOR') && !member) {
-              return message.reply ('Marque alguem!');
-          }
+          //if (message.member.hasPermission('ADMINISTRATOR') && !member) {
+            //  return message.reply ('Marque alguem!');
+          //}
           const reason = args.slice(1).join(' ');
-	    try {
+	     try {
 			//testa outras parada aki
 			guilds.kick(member, {reason});
 	        } catch (error) {
