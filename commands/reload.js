@@ -8,6 +8,9 @@ module.exports = {
 		const command = message.client.commands.get(commandName)
 			|| message.client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
+		if(!message.member.hasPermission('ADMINISTRATOR'))
+			return message.reply('você não tem cargo para executar essa comando!');	
+
 		if (!command) {
 			return message.channel.send(`Não tem comando com esse nome ou prefixo \`${commandName}\`, ${message.author}!`);
 		}
