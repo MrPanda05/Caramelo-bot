@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 module.exports = {
 	name: 'twitch',
-	aliases: ['on', 'live', 'Pai ta on', 'pai ta on'],
+	aliases: ['on', 'live', 'Pai ta on', 'pai ta on', 'toon'],
 	description: 'To on seu lixo',
     //cooldown: 5,
     execute(message, args) {
@@ -13,14 +13,14 @@ module.exports = {
         .setColor('RAMDOM')
         //\u200b adiciona um negocio vazio
         .addField('https://www.twitch.tv/neekobh', '\u200b')
-        .setThumbnail('https://static-cdn.jtvnw.net/jtv_user_pictures/defeda54-05da-46c4-b8a3-2c29b871d09e-profile_image-70x70.png')
+        .setThumbnail('https://imgur.com/5bRCeql')
         
         const linkTwitch = new Discord.MessageEmbed()
         .setTitle('Twitch')
         .setURL('https://www.twitch.tv/neekobh')
         .addField('https://www.twitch.tv/neekobh', '\u200b')
         .setColor('RAMDOM')
-        .setThumbnail('https://static-cdn.jtvnw.net/jtv_user_pictures/defeda54-05da-46c4-b8a3-2c29b871d09e-profile_image-70x70.png')
+        .setThumbnail('https://imgur.com/5bRCeql')
         .setDescription('Live do Neeko')
 
 
