@@ -22,42 +22,9 @@ module.exports = {
      3-quando bane alguem de cargo maior ou igual
      */
 	execute(message, args){
-         // const client = new Discord.Client();
-          
-          function getUserFromMention(mention) {
-               if (!mention) return;
-          
-               if (mention.startsWith('<@') && mention.endsWith('>')) {
-                    mention = mention.slice(2, -1);
-          
-                    if (mention.startsWith('!')) {
-                         mention = mention.slice(1);
-                    }
-          
-                    return (mention);
-               }
-          }
-          const user = getUserFromMention(args[0]);
-          //const id = args[0];
-          //Caso o cara não tem permissão
-          if (!message.member.has(message.guild.ownerID)) {
-              return message.reply ('Você não é neeko');
-          }
-          //Casso cara tenha permissão, mas não tenha marcado alguem!
-          //if (message.member.has('ADMINISTRATOR') && !user) {
-            //  return message.reply ('Marque alguem!');
-         // }
-          const reason = args.slice(1).join(' ');
-	    try {
-		     message.guild.members.ban(user, { reason });
-	        } catch (error) {
-		    return message.channel.send(`Não foi possível banir está pessoa com o id: **${user}**\nErro: ${error}`);
-	        }
-
-	        return message.channel.send(`O usuário de id: **${user}** foi banido`);
-    }     
-     
-}
+         message.channel.send('Por enquanto ta safe kkkk')
+},
+};
 
           
 
