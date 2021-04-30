@@ -1,2 +1,2 @@
 # bot-caramelo
- My discord bot
+ Meu bot do discord, versão publica
